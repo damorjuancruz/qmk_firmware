@@ -1,6 +1,5 @@
 #include QMK_KEYBOARD_H
 #include "version.h"
-#include "features/achordion.h"
 
 #define MOON_LED_LEVEL LED_LEVEL
 
@@ -85,12 +84,7 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo20, KC_TAB), COMBO(combo21, KC_ENTER),  COMBO(combo22, KC_ESCAPE),
 };
 
-void matrix_scan_user(void) {
-  achordion_task();
-}
-
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  if (!process_achordion(keycode, record)) { return false; }
 
   switch (keycode) {
 

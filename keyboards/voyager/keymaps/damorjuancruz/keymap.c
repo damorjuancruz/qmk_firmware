@@ -1,6 +1,8 @@
 #include QMK_KEYBOARD_H
 #include "version.h"
 
+#include "features/sentence_case.h"
+
 #define MOON_LED_LEVEL LED_LEVEL
 
 #define L_PINKY(KEY) MT(MOD_LGUI, KEY)
@@ -85,6 +87,7 @@ combo_t key_combos[COMBO_COUNT] = {
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (!process_sentence_case(keycode, record)) { return false; }
 
   switch (keycode) {
 

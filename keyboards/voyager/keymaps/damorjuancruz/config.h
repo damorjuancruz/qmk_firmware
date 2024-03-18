@@ -17,6 +17,5 @@
 #define RGB_MATRIX_STARTUP_SPD 60
 
 #define TAPPING_TERM 210
-#define RETRO_SHIFT 500
 
 #define DEBOUNCE 10

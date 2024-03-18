@@ -18,19 +18,20 @@
 #define R_INDEX(KEY) MT(MOD_RCTL, KEY)
 
 enum custom_keycodes {
-  RGB_SLD = ML_SAFE_RANGE,
-  HSV_0_255_255,
-  HSV_74_255_255,
-  HSV_169_255_255,
+    RGB_SLD = ML_SAFE_RANGE,
+    HSV_0_255_255,
+    HSV_74_255_255,
+    HSV_169_255_255,
 
-  MT_LABK,
-  MT_RABK,
-  MT_LPRN,
-  MT_RPRN,
-  MT_LCBR,
-  MT_RCBR,
+    MT_LABK,
+    MT_RABK,
+    MT_LPRN,
+    MT_RPRN,
+    MT_LCBR,
+    MT_RCBR,
 };
 
+// clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_voyager(
         _______, _______      , _______      , _______      , _______        , _______  ,                   _______      , _______       , _______      , _______      , _______      , _______,
@@ -85,74 +86,76 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo10, KC_TAB), COMBO(combo11, KC_ENTER),  COMBO(combo12, KC_ESCAPE),
     COMBO(combo20, KC_TAB), COMBO(combo21, KC_ENTER),  COMBO(combo22, KC_ESCAPE),
 };
+// clang-format on
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  if (!process_sentence_case(keycode, record)) { return false; }
+    if (!process_sentence_case(keycode, record)) {
+        return false;
+    }
 
-  switch (keycode) {
+    switch (keycode) {
+        case L_PINKY(MT_LABK):
+            if (record->event.pressed && record->tap.count > 0) {
+                tap_code16(KC_LABK);
+                return false;
+            }
+            break;
+        case L_INDEX(MT_RABK):
+            if (record->event.pressed && record->tap.count > 0) {
+                tap_code16(KC_RABK);
+                return false;
+            }
+            break;
+        case R_INDEX(MT_LPRN):
+            if (record->event.pressed && record->tap.count > 0) {
+                tap_code16(KC_LPRN);
+                return false;
+            }
+            break;
+        case R_PINKY(MT_RPRN):
+            if (record->event.pressed && record->tap.count > 0) {
+                tap_code16(KC_RPRN);
+                return false;
+            }
+            break;
+        case R_MIDDL(MT_LCBR):
+            if (record->event.pressed && record->tap.count > 0) {
+                tap_code16(KC_LCBR);
+                return false;
+            }
+            break;
+        case R_RING1(MT_RCBR):
+            if (record->event.pressed && record->tap.count > 0) {
+                tap_code16(KC_RCBR);
+                return false;
+            }
+            break;
 
-  case L_PINKY(MT_LABK):
-    if (record->event.pressed && record->tap.count > 0) {
-      tap_code16(KC_LABK);
-      return false;
+        case RGB_SLD:
+            if (record->event.pressed) {
+                rgblight_mode(1);
+            }
+            return false;
+        case HSV_0_255_255:
+            if (record->event.pressed) {
+                rgblight_mode(1);
+                rgblight_sethsv(0, 255, 255);
+            }
+            return false;
+        case HSV_74_255_255:
+            if (record->event.pressed) {
+                rgblight_mode(1);
+                rgblight_sethsv(74, 255, 255);
+            }
+            return false;
+        case HSV_169_255_255:
+            if (record->event.pressed) {
+                rgblight_mode(1);
+                rgblight_sethsv(169, 255, 255);
+            }
+            return false;
     }
-    break;
-  case L_INDEX(MT_RABK):
-    if (record->event.pressed && record->tap.count > 0) {
-      tap_code16(KC_RABK);
-      return false;
-    }
-    break;
-  case R_INDEX(MT_LPRN):
-    if (record->event.pressed && record->tap.count > 0) {
-      tap_code16(KC_LPRN);
-      return false;
-    }
-    break;
-  case R_PINKY(MT_RPRN):
-    if (record->event.pressed && record->tap.count > 0) {
-      tap_code16(KC_RPRN);
-      return false;
-    }
-    break;
-  case R_MIDDL(MT_LCBR):
-    if (record->event.pressed && record->tap.count > 0) {
-      tap_code16(KC_LCBR);
-      return false;
-    }
-    break;
-  case R_RING1(MT_RCBR):
-    if (record->event.pressed && record->tap.count > 0) {
-      tap_code16(KC_RCBR);
-      return false;
-    }
-    break;
-
-  case RGB_SLD:
-    if (record->event.pressed) {
-      rgblight_mode(1);
-    }
-    return false;
-  case HSV_0_255_255:
-    if (record->event.pressed) {
-      rgblight_mode(1);
-      rgblight_sethsv(0, 255, 255);
-    }
-    return false;
-  case HSV_74_255_255:
-    if (record->event.pressed) {
-      rgblight_mode(1);
-      rgblight_sethsv(74, 255, 255);
-    }
-    return false;
-  case HSV_169_255_255:
-    if (record->event.pressed) {
-      rgblight_mode(1);
-      rgblight_sethsv(169, 255, 255);
-    }
-    return false;
-  }
-  return true;
+    return true;
 }
 
 bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {

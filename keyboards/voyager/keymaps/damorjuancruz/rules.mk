@@ -8,4 +8,6 @@ SPACE_CADET_ENABLE = no
 CAPS_WORD_ENABLE = yes
 COMBO_ENABLE = yes
 
+DEBOUNCE_TYPE = sym_eager_pk
+
 SRC += features/sentence_case.c

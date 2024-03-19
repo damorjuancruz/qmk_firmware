@@ -34,11 +34,11 @@ enum custom_keycodes {
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_voyager(
-        _______, _______      , _______      , _______      , _______        , _______  ,                   _______      , _______       , _______      , _______      , _______      , _______,
-        CW_TOGG, KC_B         , L_RING2(KC_Y), KC_O         , KC_U           , KC_QUOTE ,                   KC_SCLN      , KC_L          , KC_D         , R_RING2(KC_W), KC_V         , KC_Z   ,
-        KC_TAB , L_PINKY(KC_C), L_RING1(KC_I), L_MIDDL(KC_E), L_INDEX(KC_A)  , KC_COMMA ,                   KC_DOT       , R_INDEX(KC_H) , R_MIDDL(KC_T), R_RING1(KC_S), R_PINKY(KC_N), KC_Q   ,
-        _______, KC_G         , KC_X         , KC_J         , KC_K           , KC_MINUS ,                   KC_SLASH     , KC_R          , KC_M         , KC_F         , KC_P         , _______,
-                                                              LT(1, KC_SPACE), KC_ESCAPE,                   OSM(MOD_LSFT), LT(2, KC_BSPC)
+        _______, _______      , _______      , _______      , _______        , _______         ,                   _______      , _______       , _______      , _______      , _______      , _______,
+        CW_TOGG, KC_B         , L_RING2(KC_Y), KC_O         , KC_U           , KC_QUOTE        ,                   KC_SCLN      , KC_L          , KC_D         , R_RING2(KC_W), KC_V         , KC_Z   ,
+        KC_TAB , L_PINKY(KC_C), L_RING1(KC_I), L_MIDDL(KC_E), L_INDEX(KC_A)  , KC_COMMA        ,                   KC_DOT       , R_INDEX(KC_H) , R_MIDDL(KC_T), R_RING1(KC_S), R_PINKY(KC_N), KC_Q   ,
+        _______, KC_G         , KC_X         , KC_J         , KC_K           , KC_MINUS        ,                   KC_SLASH     , KC_R          , KC_M         , KC_F         , KC_P         , _______,
+                                                              LT(1, KC_SPACE), LT(3, KC_ESCAPE),                   OSM(MOD_LSFT), LT(2, KC_BSPC)
     ),
     [1] = LAYOUT_voyager(
         _______, _______      , _______      , _______      , _______      , _______,                   _______ , _______      , _______      , _______      , _______      , _______,
@@ -69,17 +69,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______),
 };
 
-const uint16_t PROGMEM combo00[] = { L_RING2(KC_Y), KC_O         , KC_U         , COMBO_END };
-const uint16_t PROGMEM combo01[] = { L_RING1(KC_I), L_MIDDL(KC_E), L_INDEX(KC_A), COMBO_END };
-const uint16_t PROGMEM combo02[] = { KC_B         , L_RING2(KC_Y), KC_O         , COMBO_END };
+const uint16_t PROGMEM combo00[] = { KC_O         , KC_U         , COMBO_END };
+const uint16_t PROGMEM combo01[] = { L_MIDDL(KC_E), L_INDEX(KC_A), COMBO_END };
+const uint16_t PROGMEM combo02[] = { L_RING2(KC_Y), KC_O         , COMBO_END };
 
-const uint16_t PROGMEM combo10[] = { L_RING2(KC_Y), KC_LPRN      , KC_RPRN      , COMBO_END };
-const uint16_t PROGMEM combo11[] = { L_RING1(KC_3), L_MIDDL(KC_1), L_INDEX(KC_2), COMBO_END };
-const uint16_t PROGMEM combo12[] = { KC_DOT       , L_RING2(KC_Y), KC_LPRN      , COMBO_END };
+const uint16_t PROGMEM combo10[] = { KC_LPRN      , KC_RPRN      , COMBO_END };
+const uint16_t PROGMEM combo11[] = { L_MIDDL(KC_1), L_INDEX(KC_2), COMBO_END };
+const uint16_t PROGMEM combo12[] = { L_RING2(KC_Y), KC_LPRN      , COMBO_END };
 
-const uint16_t PROGMEM combo20[] = { L_RING2(KC_CIRC) , KC_DLR           , KC_ASTR         , COMBO_END };
-const uint16_t PROGMEM combo21[] = { L_RING1(KC_MINUS), L_MIDDL(KC_EQUAL), L_INDEX(KC_RABK), COMBO_END };
-const uint16_t PROGMEM combo22[] = { KC_HASH          , L_RING2(KC_CIRC) , KC_DLR          , COMBO_END };
+const uint16_t PROGMEM combo20[] = { KC_DLR           , KC_ASTR         , COMBO_END };
+const uint16_t PROGMEM combo21[] = { L_MIDDL(KC_EQUAL), L_INDEX(KC_RABK), COMBO_END };
+const uint16_t PROGMEM combo22[] = { L_RING2(KC_CIRC) , KC_DLR          , COMBO_END };
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo00, KC_TAB), COMBO(combo01, KC_ENTER),  COMBO(combo02, KC_ESCAPE),

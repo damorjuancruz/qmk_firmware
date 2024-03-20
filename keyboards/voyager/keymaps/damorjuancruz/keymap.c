@@ -55,18 +55,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                          KC_SPACE        , KC_BSPC ,                   XXXXXXX , _______
     ),
     [3] = LAYOUT_voyager(
-        RGB_TOG, TOGGLE_LAYER_COLOR, RGB_MODE_FORWARD, RGB_SLD, RGB_VAD,
-        RGB_VAI, _______, _______, _______, _______,
-        _______, QK_BOOT, _______, _______,
-        KC_AUDIO_VOL_DOWN, KC_AUDIO_VOL_UP, KC_AUDIO_MUTE, _______,
-        KC_PAGE_UP, KC_HOME, KC_UP, KC_END, _______, _______,
-        _______, KC_MEDIA_PREV_TRACK, KC_MEDIA_NEXT_TRACK, KC_MEDIA_STOP,
-        KC_MEDIA_PLAY_PAUSE, _______, KC_PGDN, KC_LEFT, KC_DOWN,
-        KC_RIGHT, _______, _______, _______,
-        _______, _______, HSV_0_255_255, HSV_74_255_255,
-        HSV_169_255_255, _______, LCTL(LSFT(KC_TAB)), LCTL(KC_TAB),
-        _______, _______, _______, _______,
-        _______, _______, _______),
+        RGB_TOG, RGB_MOD, RGB_VAD, RGB_VAI, EE_CLR , _______,                   _______, _______, _______, _______, _______, QK_BOOT,
+        _______, _______, KC_VOLD, KC_VOLU, KC_MUTE, _______,                   KC_PGUP, KC_HOME, KC_UP  , KC_END , _______, _______,
+        _______, KC_MPRV, KC_MNXT, KC_MSTP, KC_MPLY, _______,                   KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
+        _______, _______, _______, HSV_0_255_255, HSV_74_255_255, HSV_169_255_255, _______, LCTL(LSFT(KC_TAB)), LCTL(KC_TAB), _______, _______, _______,
+                                            _______, _______,                   _______, _______
+    ),
 };
 
 const uint16_t PROGMEM combo00[] = { KC_O         , KC_U         , COMBO_END };

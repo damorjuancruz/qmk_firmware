@@ -9,5 +9,6 @@ CAPS_WORD_ENABLE = yes
 COMBO_ENABLE = yes
 
 DEBOUNCE_TYPE = sym_eager_pk
+AUTOCORRECT_ENABLE = yes
 
 SRC += features/sentence_case.c

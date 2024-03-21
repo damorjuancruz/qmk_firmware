@@ -25,13 +25,15 @@
 
 #pragma once
 
-// Autocorrection dictionary (1 entries):
+// Autocorrection dictionary (2 entries):
 //   :i: -> I
+//   :i' -> I'
 
 #define AUTOCORRECT_MIN_LENGTH 3 // ":i:"
 #define AUTOCORRECT_MAX_LENGTH 3 // ":i:"
-#define DICTIONARY_SIZE 7
+#define DICTIONARY_SIZE 20
 
 static const uint8_t autocorrect_data[DICTIONARY_SIZE] PROGMEM = {
-    0x2C, 0x0C, 0x2C, 0x00, 0x81, 0x49, 0x00
+    0x74, 0x07, 0x00, 0x2C, 0x0E, 0x00, 0x00, 0x0C, 0x2C, 0x00, 0x81, 0x49, 0x27, 0x00, 0x0C, 0x2C,
+    0x00, 0x81, 0x49, 0x00
 };

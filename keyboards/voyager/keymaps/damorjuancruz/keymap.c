@@ -29,6 +29,7 @@ enum custom_keycodes {
     MT_RPRN,
     MT_LCBR,
     MT_RCBR,
+    MT_CIRC,
 };
 
 // clang-format off
@@ -49,7 +50,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     [2] = LAYOUT_voyager(
         _______, _______         , _______          , _______          , _______         , _______ ,                   _______ , _______         , _______         , _______         , _______         , _______,
-        _______, KC_HASH         , L_RING2(KC_CIRC) , KC_DLR           , KC_ASTR         , KC_QUOTE,                   KC_SCLN , KC_GRAVE        , KC_LBRC         , R_RING2(KC_RBRC), KC_PERC         , XXXXXXX,
+        _______, KC_HASH         , L_RING2(MT_CIRC) , KC_DLR           , KC_ASTR         , KC_QUOTE,                   KC_SCLN , KC_GRAVE        , KC_LBRC         , R_RING2(KC_RBRC), KC_PERC         , XXXXXXX,
         _______, L_PINKY(MT_LABK), L_RING1(KC_MINUS), L_MIDDL(KC_EQUAL), L_INDEX(MT_RABK), KC_COMMA,                   KC_DOT  , R_INDEX(MT_LPRN), R_MIDDL(MT_LCBR), R_RING1(MT_RCBR), R_PINKY(MT_RPRN), XXXXXXX,
         _______, RSFT(KC_AT)     , KC_UNDS          , KC_BSLS          , KC_TILD         , KC_MINUS,                   KC_SLASH, KC_EXLM         , KC_AMPR         , KC_PIPE         , KC_QUES         , _______,
                                                                          KC_SPACE        , KC_BSPC ,                   XXXXXXX , _______
@@ -73,7 +74,7 @@ const uint16_t PROGMEM combo12[] = { L_RING2(KC_Y), KC_LPRN      , COMBO_END };
 
 const uint16_t PROGMEM combo20[] = { KC_DLR           , KC_ASTR         , COMBO_END };
 const uint16_t PROGMEM combo21[] = { L_MIDDL(KC_EQUAL), L_INDEX(KC_RABK), COMBO_END };
-const uint16_t PROGMEM combo22[] = { L_RING2(KC_CIRC) , KC_DLR          , COMBO_END };
+const uint16_t PROGMEM combo22[] = { L_RING2(MT_CIRC) , KC_DLR          , COMBO_END };
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo00, KC_TAB), COMBO(combo01, KC_ENTER),  COMBO(combo02, KC_ESCAPE),
@@ -121,6 +122,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case R_RING1(MT_RCBR):
             if (record->event.pressed && record->tap.count > 0) {
                 tap_code16(KC_RCBR);
+                return false;
+            }
+            break;
+        case L_RING2(MT_CIRC):
+            if (record->event.pressed && record->tap.count > 0) {
+                tap_code16(KC_CIRC);
                 return false;
             }
             break;

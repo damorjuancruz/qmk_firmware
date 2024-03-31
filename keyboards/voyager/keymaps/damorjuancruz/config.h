@@ -17,3 +17,5 @@
 #define RGB_MATRIX_DEFAULT_SPD 80
 
 #define COMBO_TERM 15
+
+#define FORCE_NKRO

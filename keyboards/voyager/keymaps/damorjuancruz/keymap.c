@@ -71,28 +71,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 };
 
-const uint16_t PROGMEM combo00[] = { KC_O         , KC_U         , COMBO_END };
-const uint16_t PROGMEM combo01[] = { L_MIDDL(KC_E), L_INDEX(KC_A), COMBO_END };
-const uint16_t PROGMEM combo02[] = { L_RING2(KC_Y), KC_O         , COMBO_END };
-
-const uint16_t PROGMEM combo10[] = { KC_LPRN      , KC_RPRN      , COMBO_END };
-const uint16_t PROGMEM combo11[] = { L_MIDDL(KC_1), L_INDEX(KC_2), COMBO_END };
-const uint16_t PROGMEM combo12[] = { L_RING2(KC_Y), KC_LPRN      , COMBO_END };
-
-const uint16_t PROGMEM combo20[] = { KC_DLR           , KC_ASTR         , COMBO_END };
-const uint16_t PROGMEM combo21[] = { L_MIDDL(KC_EQUAL), L_INDEX(KC_RABK), COMBO_END };
-const uint16_t PROGMEM combo22[] = { L_RING2(MT_CIRC) , KC_DLR          , COMBO_END };
-
-const uint16_t PROGMEM combo41[] = { KC_F, KC_G, COMBO_END };
-
 const uint16_t PROGMEM comboLayer4[] = { KC_TAB, KC_Q, COMBO_END };
 
 combo_t key_combos[] = {
-    COMBO(combo00, KC_TAB), COMBO(combo01, KC_ENTER),  COMBO(combo02, KC_ESCAPE),
-    COMBO(combo10, KC_TAB), COMBO(combo11, KC_ENTER),  COMBO(combo12, KC_ESCAPE),
-    COMBO(combo20, KC_TAB), COMBO(combo21, KC_ENTER),  COMBO(combo22, KC_ESCAPE),
-                            COMBO(combo41, KC_ENTER),
-
     COMBO(comboLayer4, TG(4))
 };
 // clang-format on
